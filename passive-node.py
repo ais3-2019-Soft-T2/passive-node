@@ -1,6 +1,8 @@
 import requests
 import os.path
 import sched, time
+import json
+
 s = sched.scheduler(time.time, time.sleep)
 headers = {
     'Content-Type': 'application/json',
@@ -30,10 +32,10 @@ def check_version(url, name, version):
             print("Update.")
             fp.write(version)
             data = {'url': url, 'name': name, 'version': version}
-            requests.post("http://localhost:5555", headers=headers, data=data)
+            requests.post("http://localhost:5555/", headers=headers, data=json.dumps(data))
         else:
             print("It has been the latest version.")
 
-check_version("https://i.imgur.com/Jvh1OQm.jpg", "hello", "1.0.6")
+check_version("https://i.imgur.com/Jvh1OQm.jpg", "hello", "1.0.8")
 #s.enter(60, 1, requests_version)
 #s.run()
