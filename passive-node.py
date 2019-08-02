@@ -36,6 +36,7 @@ def check_version(url, name, version):
         else:
             print("It has been the latest version.")
 
-check_version("https://i.imgur.com/Jvh1OQm.jpg", "hello", "1.0.8")
-#s.enter(60, 1, requests_version)
-#s.run()
+if __name__ == '__main__':
+    check_version("https://i.imgur.com/Jvh1OQm.jpg", "hello", "1.0.8")
+    # s.enter(60, 1, requests_version)
+    # s.run()
