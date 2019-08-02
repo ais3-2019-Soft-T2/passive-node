@@ -9,12 +9,11 @@ headers = {
 }
 
 def requests_version():
-
-    r = requests.get('xxxxx')
+    r = requests.get('Please enter your URL')
     if r.status_code == requests.codes.ok:
         print("Get json!")
     check_version(r.content['url'], r.content['name'], r.content['version'])
-    s.enter(60, 1, requests_version)
+    s.enter(6, 1, requests_version)
 
 def check_version(url, name, version):
     filename = name + ".txt"
@@ -38,5 +37,5 @@ def check_version(url, name, version):
 
 if __name__ == '__main__':
     check_version("https://i.imgur.com/Jvh1OQm.jpg", "hello", "1.0.8")
-    # s.enter(60, 1, requests_version)
-    # s.run()
+    s.enter(6, 1, requests_version)
+    s.run()
